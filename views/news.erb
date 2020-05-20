@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Google Fonts -->
-    <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playball|DM Serif Text|Montserrat|Raleway&display=swap" rel="stylesheet"> 
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -18,14 +17,96 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>News</title>
+    <title>Weather & News</title>
   </head>
   <body>
 
-    <div class="container mt-5">
-      <h1>News</h1>
+  <!-- Navbar with a refresh button -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <div class="navbar-nav ml-auto">
+          <a class="btn btn-outline-success" href="/">Refresh my updates</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Full width Jumbotron -->
+    <div class="jumbotron">
+      <h1 class="display-4"><strong>Weather & News</strong></h1>
     </div>
 
+    <!-- The weather section -->
+    <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h2>Weather Updates</h2>
+      </div>
+    </div>
+          
+    <div class="container mt-5">
+    <h3>Weather Now: <%= @current_description %>  <img src="/images/<%=@current_description%>.jpg" style="width:50px;height:50px;"></h3>
+    <p>
+        <% for weathernow in @current_weather %>
+        <p><%= weathernow %></p>
+        <% end %>
+    </p> 
+    </div>
+
+    <div class="container mt-5">
+    <h5><i class="far fa-calendar-alt"></i> 5-Day Weather Forecast </h5>
+    <p>    
+        <% for days in @five_day_weather %>
+        <p><%= days %></p>
+        <% end %>
+    </p>
+    </div>
+
+    <hr class="my-4">
+
+ <!-- The news section -->
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col text-center">
+        <h2>News Updates</h2>
+        </div>
+    </div>
+
+<div class="row mt-4"> </div>
+
+<div class="row">
+
+    <div class="col-sm-6 text-center">
+        <h3><i class="fas fa-briefcase"></i></h3>
+        <h4>Business News:</h4>
+    </div>
+
+    <div class="col-sm-6 text-center">
+        <h3><i class="fas fa-football-ball"></i></h3>
+        <h4>Sports News:</h4>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-sm-6 text-left">
+       <p>
+        <% for bizarticle in @top_5_biz_articles %>
+        <p><a href=<%= bizarticle %></a></p>
+        <% end %>
+        </p>
+    </div>
+
+    <div class="col-sm-6 text-left">
+        <p>
+        <% for sportsarticle in @top_5_sports_articles %>
+        <p><a href=<%= sportsarticle %></a></p>
+        <% end %>
+        </p>
+    </div>
+
+</div>
+
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

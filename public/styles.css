@@ -1,0 +1,23 @@
+h1 {
+    font-family: 'Playball', serif;
+    font-size: 120px;
+}
+
+h2 {
+    font-family: 'Playball', serif;
+    font-size: 60px;
+    color: orange; 
+}
+
+h3, h4, h5 {
+    font-family: 'DM Serif Text', serif;
+    font-size: 30px
+}
+
+.jumbotron {
+  /* Background */
+  background-attachment: fixed;
+  background-image: url(newspaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
